@@ -1,8 +1,11 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+
+  /* padding: 2rem; */
+  /* text-align: center; */
 }
 
 .logo {
@@ -33,10 +36,105 @@
   }
 }
 
-.card {
-  padding: 2em;
+.card{
+  width: 20rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  margin: 0.5rem;
+  transition: 0.2s ease-in;
 }
+
+.card-img-top{
+  transition: 0.3s ease-out;
+
+}
+
+.card-img-top:hover{
+  height: 180px;
+  transition: 0.3s ease-out;
+
+}
+
+.image-main{
+  width: 100%;
+
+}
+
+.screenshots{
+  display: flex;
+  max-height: 10rem;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.screenshots img{
+  width: 15rem;
+  margin: 1rem;
+  object-fit: contain;
+}
+
+.login{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card{
+  padding: 5em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.game-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+/* .card::after{
+  position: absolute;
+  content: '';
+  background: rgba(255, 255, 255, 0.2) url('./assets//star.png');
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 30px;
+  right:0;
+  height: 100%;
+
+} */
+
+.game-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: grow;
+}
+
+
 
 .read-the-docs {
   color: #888;
+}
+
+.footer{
+  padding: 0.4rem;
+  text-align: center;
+  transition: 0.2s ease-out;
+}
+
+.footer:hover{
+ background-color: black;
+ color: white;
+}
+
+.footer a{
+  text-decoration: none;
+  color: inherit;
 }
