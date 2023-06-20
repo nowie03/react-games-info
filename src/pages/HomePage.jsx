@@ -5,6 +5,8 @@ import NavBar from "../components/NavBar";
 import { Outlet } from "react-router-dom";
 import { GameContext } from "../context/GameContext";
 import { data } from "../localData";
+import { AnimatePresence ,motion} from "framer-motion";
+
 
 const HomePage = () => {
     const userState = useContext(AppContext);
@@ -30,7 +32,9 @@ const HomePage = () => {
     <GameContext.Provider value={{ games, setGames }}>
       <Fragment>
         <NavBar />
+        <AnimatePresence>
         <Outlet />
+        </AnimatePresence>
       </Fragment>
     </GameContext.Provider>
   );

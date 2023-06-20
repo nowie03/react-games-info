@@ -36,27 +36,18 @@
   }
 }
 
-.card{
-  width: 20rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  position: relative;
-  margin: 0.5rem;
-  transition: 0.2s ease-in;
-}
+
 
 .card-img-top{
   transition: 0.3s ease-out;
 
 }
 
-.card-img-top:hover{
+/* .card-img-top:hover{
   height: 180px;
   transition: 0.3s ease-out;
 
-}
+} */
 
 .image-main{
   width: 100%;
@@ -111,11 +102,23 @@
 } */
 
 .game-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: grow;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:1rem;
 }
+
+.card{
+  width: 100%;
+  min-height:20rem ;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  margin: 0.5rem;
+  transition: 0.2s ease-in;
+}
+
 
 
 

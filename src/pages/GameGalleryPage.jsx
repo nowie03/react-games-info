@@ -3,6 +3,7 @@ import GameCardComponent from "../components/GameCardComponent";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { GameContext } from "../context/GameContext";
+import{motion} from 'framer-motion'
 
 
 const GameGalleryComponent = () => {
@@ -39,19 +40,21 @@ const GameGalleryComponent = () => {
             <Button variant="outline-success">Search</Button>
           </Form>
         </div>
-        <div className="game-container">
+        <motion.div layout className="game-container">
           {games.map((game, index) => {
             console.log(game.name.toLowerCase()+" "+searchFilter+" "+ game.name.toLowerCase().includes(searchFilter))
             return game.name.toLowerCase().includes(searchFilter) &&(
+             
               <GameCardComponent
                 key={index}
                 imgSrc={game.background_image}
                 title={game.name}
                 id={game.id}
               />
+              
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

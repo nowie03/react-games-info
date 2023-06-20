@@ -8,12 +8,12 @@ import linux from "../assets/linux.png";
 import nitendo from "../assets/joystick.png";
 import android from "../assets/android.png";
 import mac from "../assets/apple-logo.png";
-
+import { motion } from "framer-motion";
 
 const GamePage = () => {
   const { id } = useParams();
 
-  const { games, setGames } =    useContext(GameContext);
+  const { games, setGames } = useContext(GameContext);
   const game = games.find((game) => game.id === parseInt(id));
   console.log(game);
 
@@ -38,8 +38,13 @@ const GamePage = () => {
     }
   };
 
+  const variants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   return (
-    <Fragment>
+    <motion.div initial={{ width: 0 ,opacity:0}} animate={{ width: "100%",opacity:1 }} transition={{ ease: "easeIn", duration: 0.5 }}>
       <div className="image-container">
         <div className="row">
           <img
@@ -49,15 +54,15 @@ const GamePage = () => {
             className="image-main"
           />
         </div>
-        <div className="row mt-3" >
+        <div className="row mt-3">
           <h2>{game.name}</h2>
         </div>
         <div className="row">
-          <div className="col-xs-12 col-md-6 game-info">
+          <motion.div className="col-xs-12 col-md-6 game-info">
             <p>Rating: {game.rating}</p>
             <p>Meta critic: {game.metacritic}</p>
             <p>Genre: {game.esrb_rating.name}</p>
-          </div>
+          </motion.div>
           <div className="col-xs-12 col-md-6 game-info">
             <p>Released on: {game.released}</p>
             <p>Added by: {game.added} users</p>
@@ -67,7 +72,10 @@ const GamePage = () => {
         <h3>Screenshots</h3>
         <div className="screenshots">
           {game.short_screenshots.map((screenshot, index) => {
-            return <img key={index} src={screenshot.image} alt="screenshot" />;
+            return <motion.img key={`img-${index}`} whileHover={{
+              scale: 1.3,
+              transition: { duration: 0.2 },
+            }} src={screenshot.image} alt="screenshot" />;
           })}
         </div>
         <h3>Available on</h3>
@@ -75,14 +83,26 @@ const GamePage = () => {
           {game.parent_platforms.map(({ platform }, index) => {
             return (
               <div className="platform-card m-3">
-                <img src={getIcon(platform.name)} alt="" srcset="" width={30} />
+                <motion.img
+                key={`icon-${index}`}
+                whileHover={
+                  {
+                    scale: 1.3,
+                    transition: { duration: 0.2 },
+                  }
+                }
+                  src={getIcon(platform.name)}
+                  alt=""
+                  srcset=""
+                  width={30}
+                />
                 <p key={index}>{platform.name}</p>
               </div>
             );
           })}
         </div>
       </div>
-    </Fragment>
+    </motion.div>
   );
 };
 
